@@ -13,3 +13,10 @@ lower <- 231304956-62110007
 upper <- 231304956+62110007
 #3
 data2 <- filter(strawb, Year==2016 & State==c("CALIFORNIA") & Domain=="TOTAL")
+#4
+#strawb_chem <- strawb_non_organic %>% slice(chem_rows, preserve = FALSE)
+strawb_chem %>% group_by(State) %>% 
+    summarize(count_distinct = n_distinct(chem_name))
+#5
+strawb_chem %>% group_by(State) %>% 
+  summarize(count_distinct = n_distinct(chem_name))
